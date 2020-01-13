@@ -43,7 +43,7 @@ class Bot(object):
         while time.time() - begintime < sec:
             print('=' * 10)
             self.parse()
-            time.sleep(10)пше
+            time.sleep(10)
         self.driver.quit()
 
 class MyListener(AbstractEventListener):
