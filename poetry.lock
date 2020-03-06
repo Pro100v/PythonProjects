@@ -1,0 +1,121 @@
+[[package]]
+category = "main"
+description = "Screen-scraping library"
+name = "beautifulsoup4"
+optional = false
+python-versions = "*"
+version = "4.8.2"
+
+[package.dependencies]
+soupsieve = ">=1.2"
+
+[[package]]
+category = "main"
+description = "Dummy package for Beautiful Soup"
+name = "bs4"
+optional = false
+python-versions = "*"
+version = "0.0.1"
+
+[package.dependencies]
+beautifulsoup4 = "*"
+
+[[package]]
+category = "main"
+description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
+name = "lxml"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
+version = "4.5.0"
+
+[[package]]
+category = "main"
+description = "NumPy is the fundamental package for array computing with Python."
+name = "numpy"
+optional = false
+python-versions = ">=3.5"
+version = "1.18.1"
+
+[[package]]
+category = "main"
+description = "Powerful data structures for data analysis, time series, and statistics"
+name = "pandas"
+optional = false
+python-versions = ">=3.6.1"
+version = "1.0.1"
+
+[package.dependencies]
+numpy = ">=1.13.3"
+python-dateutil = ">=2.6.1"
+pytz = ">=2017.2"
+
+[[package]]
+category = "main"
+description = "Extensions to the standard Python datetime module"
+name = "python-dateutil"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+version = "2.8.1"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+category = "main"
+description = "World timezone definitions, modern and historical"
+name = "pytz"
+optional = false
+python-versions = "*"
+version = "2019.3"
+
+[[package]]
+category = "main"
+description = "Python bindings for Selenium"
+name = "selenium"
+optional = false
+python-versions = "*"
+version = "3.141.0"
+
+[package.dependencies]
+urllib3 = "*"
+
+[[package]]
+category = "main"
+description = "Python 2 and 3 compatibility utilities"
+name = "six"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "1.14.0"
+
+[[package]]
+category = "main"
+description = "A modern CSS selector implementation for Beautiful Soup."
+name = "soupsieve"
+optional = false
+python-versions = ">=3.5"
+version = "2.0"
+
+[[package]]
+category = "main"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+name = "urllib3"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+version = "1.25.8"
+
+[metadata]
+content-hash = "f58eec51e9d9b7b10891603301389eb27fa655c08793de97cf13bc5153a3cb78"
+python-versions = "^3.7"
+
+[metadata.hashes]
+beautifulsoup4 = ["05fd825eb01c290877657a56df4c6e4c311b3965bda790c613a3d6fb01a5462a", "9fbb4d6e48ecd30bcacc5b63b94088192dcda178513b2ae3c394229f8911b887", "e1505eeed31b0f4ce2dbb3bc8eb256c04cc2b3b72af7d551a4ab6efd5cbe5dae"]
+bs4 = ["36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"]
+lxml = ["06d4e0bbb1d62e38ae6118406d7cdb4693a3fa34ee3762238bcb96c9e36a93cd", "0701f7965903a1c3f6f09328c1278ac0eee8f56f244e66af79cb224b7ef3801c", "1f2c4ec372bf1c4a2c7e4bb20845e8bcf8050365189d86806bad1e3ae473d081", "4235bc124fdcf611d02047d7034164897ade13046bda967768836629bc62784f", "5828c7f3e615f3975d48f40d4fe66e8a7b25f16b5e5705ffe1d22e43fb1f6261", "585c0869f75577ac7a8ff38d08f7aac9033da2c41c11352ebf86a04652758b7a", "5d467ce9c5d35b3bcc7172c06320dddb275fea6ac2037f72f0a4d7472035cea9", "63dbc21efd7e822c11d5ddbedbbb08cd11a41e0032e382a0fd59b0b08e405a3a", "7bc1b221e7867f2e7ff1933165c0cec7153dce93d0cdba6554b42a8beb687bdb", "8620ce80f50d023d414183bf90cc2576c2837b88e00bea3f33ad2630133bbb60", "8a0ebda56ebca1a83eb2d1ac266649b80af8dd4b4a3502b2c1e09ac2f88fe128", "90ed0e36455a81b25b7034038e40880189169c308a3df360861ad74da7b68c1a", "95e67224815ef86924fbc2b71a9dbd1f7262384bca4bc4793645794ac4200717", "afdb34b715daf814d1abea0317b6d672476b498472f1e5aacbadc34ebbc26e89", "b4b2c63cc7963aedd08a5f5a454c9f67251b1ac9e22fd9d72836206c42dc2a72", "d068f55bda3c2c3fcaec24bd083d9e2eede32c583faf084d6e4b9daaea77dde8", "d5b3c4b7edd2e770375a01139be11307f04341ec709cf724e0f26ebb1eef12c3", "deadf4df349d1dcd7b2853a2c8796593cc346600726eff680ed8ed11812382a7", "df533af6f88080419c5a604d0d63b2c33b1c0c4409aba7d0cb6de305147ea8c8", "e4aa948eb15018a657702fee0b9db47e908491c64d36b4a90f59a64741516e77", "e5d842c73e4ef6ed8c1bd77806bf84a7cb535f9c0cf9b2c74d02ebda310070e1", "ebec08091a22c2be870890913bdadd86fcd8e9f0f22bcb398abd3af914690c15", "edc15fcfd77395e24543be48871c251f38132bb834d9fdfdad756adb6ea37679", "f2b74784ed7e0bc2d02bd53e48ad6ba523c9b36c194260b7a5045071abbb1012", "fa071559f14bd1e92077b1b5f6c22cf09756c6de7139370249eb372854ce51e6", "fd52e796fee7171c4361d441796b64df1acfceb51f29e545e812f16d023c4bbc", "fe976a0f1ef09b3638778024ab9fb8cde3118f203364212c198f71341c0715ca"]
+numpy = ["1786a08236f2c92ae0e70423c45e1e62788ed33028f94ca99c4df03f5be6b3c6", "17aa7a81fe7599a10f2b7d95856dc5cf84a4eefa45bc96123cbbc3ebc568994e", "20b26aaa5b3da029942cdcce719b363dbe58696ad182aff0e5dcb1687ec946dc", "2d75908ab3ced4223ccba595b48e538afa5ecc37405923d1fea6906d7c3a50bc", "39d2c685af15d3ce682c99ce5925cc66efc824652e10990d2462dfe9b8918c6a", "56bc8ded6fcd9adea90f65377438f9fea8c05fcf7c5ba766bef258d0da1554aa", "590355aeade1a2eaba17617c19edccb7db8d78760175256e3cf94590a1a964f3", "70a840a26f4e61defa7bdf811d7498a284ced303dfbc35acb7be12a39b2aa121", "77c3bfe65d8560487052ad55c6998a04b654c2fbc36d546aef2b2e511e760971", "9537eecf179f566fd1c160a2e912ca0b8e02d773af0a7a1120ad4f7507cd0d26", "9acdf933c1fd263c513a2df3dceecea6f3ff4419d80bf238510976bf9bcb26cd", "ae0975f42ab1f28364dcda3dde3cf6c1ddab3e1d4b2909da0cb0191fa9ca0480", "b3af02ecc999c8003e538e60c89a2b37646b39b688d4e44d7373e11c2debabec", "b6ff59cee96b454516e47e7721098e6ceebef435e3e21ac2d6c3b8b02628eb77", "b765ed3930b92812aa698a455847141869ef755a87e099fddd4ccf9d81fffb57", "c98c5ffd7d41611407a1103ae11c8b634ad6a43606eca3e2a5a269e5d6e8eb07", "cf7eb6b1025d3e169989416b1adcd676624c2dbed9e3bcb7137f51bfc8cc2572", "d92350c22b150c1cae7ebb0ee8b5670cc84848f6359cf6b5d8f86617098a9b73", "e422c3152921cece8b6a2fb6b0b4d73b6579bd20ae075e7d15143e711f3ca2ca", "e840f552a509e3380b0f0ec977e8124d0dc34dc0e68289ca28f4d7c1d0d79474", "f3d0a94ad151870978fb93538e95411c83899c9dc63e6fb65542f769568ecfa5"]
+pandas = ["23e177d43e4bf68950b0f8788b6a2fef2f478f4ec94883acb627b9264522a98a", "2530aea4fe46e8df7829c3f05e0a0f821c893885d53cb8ac9b89cc67c143448c", "303827f0bb40ff610fbada5b12d50014811efcc37aaf6ef03202dc3054bfdda1", "3b019e3ea9f5d0cfee0efabae2cfd3976874e90bcc3e97b29600e5a9b345ae3d", "3c07765308f091d81b6735d4f2242bb43c332cc3461cae60543df6b10967fe27", "5036d4009012a44aa3e50173e482b664c1fae36decd277c49e453463798eca4e", "6f38969e2325056f9959efbe06c27aa2e94dd35382265ad0703681d993036052", "74a470d349d52b9d00a2ba192ae1ee22155bb0a300fd1ccb2961006c3fa98ed3", "7d77034e402165b947f43050a8a415aa3205abfed38d127ea66e57a2b7b5a9e0", "7f9a509f6f11fa8b9313002ebdf6f690a7aa1dd91efd95d90185371a0d68220e", "942b5d04762feb0e55b2ad97ce2b254a0ffdd344b56493b04a627266e24f2d82", "a9fbe41663416bb70ed05f4e16c5f377519c0dc292ba9aa45f5356e37df03a38", "d10e83866b48c0cdb83281f786564e2a2b51a7ae7b8a950c3442ad3c9e36b48c", "e2140e1bbf9c46db9936ee70f4be6584d15ff8dc3dfff1da022d71227d53bad3"]
+python-dateutil = ["73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c", "75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"]
+pytz = ["1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d", "b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"]
+selenium = ["2d7131d7bc5a5b99a2d9b04aaf2612c411b03b8ca1b1ee8d3de5845a9be2cb3c", "deaf32b60ad91a4611b98d8002757f29e6f2c2d5fcaf202e1c9ad06d6772300d"]
+six = ["236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a", "8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"]
+soupsieve = ["e914534802d7ffd233242b785229d5ba0766a7f487385e3f714446a07bf540ae", "fcd71e08c0aee99aca1b73f45478549ee7e7fc006d51b37bec9e9def7dc22b69"]
+urllib3 = ["2f3db8b19923a873b3e5256dc9c2dedfa883e33d87c690d9c7913e1f40673cdc", "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"]

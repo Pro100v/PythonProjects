@@ -82,6 +82,7 @@ class BetParser(object):
             logging.debug(f"Закрываем вкладку браузера tab:{self.tab_name}")
             self.driver.switch_to.window(self.tab_name)
             self.driver.close()
+            self.driver.quit()
 
 
     @classmethod
@@ -122,8 +123,19 @@ class Ligastavok(BetParser):
 
 def main():
     bets_utils.set_logging(logging.DEBUG)
-    url_1 = "https://www.ligastavok.ru/bets/live"
-    Ligastavok.execute(webdriver.Chrome(), 'about:blank')
+    url = "https://www.ligastavok.ru/bets/live"
+    url = 'about:blank'
+    driver_path = settings.PATH_CHROMEDRIVER.split('/')
+    # driver_path = os.path.join(os.getcwd(), *driver_path)
+    self_path = os.path.dirname(os.path.abspath(__file__))
+    driver_path = os.path.join(self_path, *driver_path)    
+    logging.debug(f"Старт программы с параметрами driver_path:{driver_path},  url:{url}")
+    if os.path.exists(driver_path):
+        print(driver_path)
+        Ligastavok.execute(webdriver.Chrome(executable_path=driver_path), url)
+    else:
+        print("Is not found ", driver_path)
+        logging.debug("Выход из программы")
 
 
 if __name__ == "__main__":
