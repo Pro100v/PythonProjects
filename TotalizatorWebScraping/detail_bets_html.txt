@@ -1,0 +1,279 @@
+<div class="event__wrapper-events-406718">
+    <span class="part__title-702475">
+        Весь матч
+        <svg class="arr-down-822c51 part__arrow-icon-5ae74a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="10" height="10"><polygon points="18.3,4.5 10,11.9 1.7,4.5 0,6.6 10,15.5 20,6.6"></polygon></svg>
+    </span>
+    <div data-count="2" class="part__markets-86eb26">
+        <div class="market__wrapper-50bc3a">
+            <span class="market__title-0ff163">Кто пройдет дальше в турнире</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1">
+                        <span class="bui-outcome__title-457ff4">1</span>
+                        14,25
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a">
+            <span class="market__title-0ff163">Как определится проход/выход в следующий круг</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Проход КОМ1 в осн.время">
+                        <span class="bui-outcome__title-457ff4">Проход КОМ1 в осн.время</span>
+                        15,00
+                    </div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Проход КОМ1 в ОТ">
+                        <span class="bui-outcome__title-457ff4">Проход КОМ1 в ОТ</span>
+                        15,00
+                    </div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Проход КОМ2 в ОТ">
+                        <span class="bui-outcome__title-457ff4">Проход КОМ2 в ОТ</span>
+                        15,00
+                    </div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Проход КОМ1 по пенальти">
+                        <span class="bui-outcome__title-457ff4">Проход КОМ1 по пенальти</span>
+                        15,00
+                    </div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Проход КОМ2 по пенальти">
+                        <span class="bui-outcome__title-457ff4">Проход КОМ2 по пенальти</span>
+                        15,00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="part__title-702475">
+        Основное время
+        <svg class="arr-down-822c51 part__arrow-icon-5ae74a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="10" height="10"><polygon points="18.3,4.5 10,11.9 1.7,4.5 0,6.6 10,15.5 20,6.6"></polygon></svg>
+    </span>
+    <div data-count="24" class="part__markets-86eb26">
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Победитель</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Портсмут"><span class="bui-outcome__title-457ff4">Портсмут</span>145</div>
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="x"><span class="bui-outcome__title-457ff4">x</span>15,00</div>
+                <div class="bui-outcome-4ce98d bui-outcome_disabled-8fcce3 bui-outcome_empty-f9a1ea outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">-</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Победитель (при ничьей возврат)</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1"><span class="bui-outcome__title-457ff4">1</span>14,25</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Двойной шанс</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1X"><span class="bui-outcome__title-457ff4">1X</span>12,00</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Фора</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Ф1 2.00 / К1"><span class="bui-outcome__title-457ff4">Ф1 2.00 / К1</span>2,70</div>
+                <div class="event__outcome-label-09f2c2">2.00/-2.00</div>
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Ф2 -2.00 / К2"><span class="bui-outcome__title-457ff4">Ф2 -2.00 / К2</span>1,40</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Фора</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Ф1 2.50 / К1"><span class="bui-outcome__title-457ff4">Ф1 2.50 / К1</span>1,35</div>
+                <div class="event__outcome-label-09f2c2">2.50/-2.50</div>
+                <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Ф2 -2.50 / К2"><span class="bui-outcome__title-457ff4">Ф2 -2.50 / К2</span>3,10</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Тотал</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 bui-outcome_less-616b53 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2.50 / мен"><span class="bui-outcome__title-457ff4">2.50 / мен</span>1,85</div>
+                <div class="event__outcome-label-09f2c2">2.50</div>
+                <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2.50 / бол"><span class="bui-outcome__title-457ff4">2.50 / бол</span>1,90</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Тотал</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3.50 / мен"><span class="bui-outcome__title-457ff4">3.50 / мен</span>1,14</div>
+                <div class="event__outcome-label-09f2c2">3.50</div>
+                <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3.50 / бол"><span class="bui-outcome__title-457ff4">3.50 / бол</span>5,25</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Тотал</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_disabled-8fcce3 bui-outcome_empty-f9a1ea outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">-</div>
+                <div class="event__outcome-label-09f2c2">4.50</div>
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="4.50 / бол"><span class="bui-outcome__title-457ff4">4.50 / бол</span>12,00</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Кто забьет 3-й гол</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1"><span class="bui-outcome__title-457ff4">1</span>5,00</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 bui-outcome_less-616b53 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="x"><span class="bui-outcome__title-457ff4">x</span>1,85</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2"><span class="bui-outcome__title-457ff4">2</span>2,85</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Обе команды забьют?</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="да"><span class="bui-outcome__title-457ff4">да</span>3,95</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="нет"><span class="bui-outcome__title-457ff4">нет</span>1,22</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Победитель + тотал 2.5</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2 и мен"><span class="bui-outcome__title-457ff4">2 и мен</span>1,70</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1 и бол"><span class="bui-outcome__title-457ff4">1 и бол</span>145</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Х и бол"><span class="bui-outcome__title-457ff4">Х и бол</span>15,00</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2 и бол"><span class="bui-outcome__title-457ff4">2 и бол</span>1,75</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Победитель + Обе забьют</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="КОМ1 и Да"><span class="bui-outcome__title-457ff4">КОМ1 и Да</span>145</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="КОМ2 и Да"><span class="bui-outcome__title-457ff4">КОМ2 и Да</span>3,60</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="КОМ2 и Нет"><span class="bui-outcome__title-457ff4">КОМ2 и Нет</span>1,18</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Никто и Да"><span class="bui-outcome__title-457ff4">Никто и Да</span>42</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Инд. Тотал КОМ 1 (0.5)</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="мен"><span class="bui-outcome__title-457ff4">мен</span>1,22</div>
+                <div class="event__outcome-label-09f2c2">0.50</div>
+                <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="бол"><span class="bui-outcome__title-457ff4">бол</span>3,95</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Инд. Тотал КОМ 1 (1.5)</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="бол"><span class="bui-outcome__title-457ff4">бол</span>11,50</div>
+                <div class="event__outcome-label-09f2c2">1.50</div>
+                <div class="bui-outcome-4ce98d bui-outcome_disabled-8fcce3 bui-outcome_empty-f9a1ea outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">-</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Инд. Тотал КОМ 1 (2.5)</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="бол"><span class="bui-outcome__title-457ff4">бол</span>15,00</div>
+                <div class="event__outcome-label-09f2c2">2.50</div>
+                <div class="bui-outcome-4ce98d bui-outcome_disabled-8fcce3 bui-outcome_empty-f9a1ea outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">-</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Инд. Тотал КОМ 2 (2.5)</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 bui-outcome_less-616b53 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="мен"><span class="bui-outcome__title-457ff4">мен</span>1,45</div>
+                <div class="event__outcome-label-09f2c2">2.50</div>
+                <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="бол"><span class="bui-outcome__title-457ff4">бол</span>2,50</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Инд. Тотал КОМ 2 (3.5)</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="мен"><span class="bui-outcome__title-457ff4">мен</span>1,05</div>
+                <div class="event__outcome-label-09f2c2">3.50</div>
+                <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="бол"><span class="bui-outcome__title-457ff4">бол</span>8,00</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Инд. Тотал КОМ 2 (4.5)</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="бол"><span class="bui-outcome__title-457ff4">бол</span>12,25</div>
+                <div class="event__outcome-label-09f2c2">4.50</div>
+                <div class="bui-outcome-4ce98d bui-outcome_disabled-8fcce3 bui-outcome_empty-f9a1ea outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">-</div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Победитель оставшейся части 0:2</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1"><span class="bui-outcome__title-457ff4">1</span>6,00</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="x"><span class="bui-outcome__title-457ff4">x</span>1,70</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2"><span class="bui-outcome__title-457ff4">2</span>3,10</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Сколько голов забьет команда 1</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0"><span class="bui-outcome__title-457ff4">0</span>1,22</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1"><span class="bui-outcome__title-457ff4">1</span>4,00</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3+"><span class="bui-outcome__title-457ff4">3+</span>15,00</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2"><span class="bui-outcome__title-457ff4">2</span>15,00</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Сколько голов забьет команда 2</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3+"><span class="bui-outcome__title-457ff4">3+</span>2,50</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 bui-outcome_less-616b53 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2"><span class="bui-outcome__title-457ff4">2</span>1,45</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Какой игрок забьет гол</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Алекс Бас"><span class="bui-outcome__title-457ff4">Алекс Бас</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Джеймс Болтон"><span class="bui-outcome__title-457ff4">Джеймс Болтон</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Кристиан Бургесс"><span class="bui-outcome__title-457ff4">Кристиан Бургесс</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Бен Клоуз"><span class="bui-outcome__title-457ff4">Бен Клоуз</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Гандузи, Маттео"><span class="bui-outcome__title-457ff4">Гандузи, Маттео</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Давид Луиз"><span class="bui-outcome__title-457ff4">Давид Луиз</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Пабло"><span class="bui-outcome__title-457ff4">Пабло</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Дамиан Мартинес"><span class="bui-outcome__title-457ff4">Дамиан Мартинес</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="МакКрори, Росс"><span class="bui-outcome__title-457ff4">МакКрори, Росс</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Камерон МакГихан"><span class="bui-outcome__title-457ff4">Камерон МакГихан</span>25</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Рейсс Нельсон"><span class="bui-outcome__title-457ff4">Рейсс Нельсон</span>13,50</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Райан Уиллиамс"><span class="bui-outcome__title-457ff4">Райан Уиллиамс</span>25</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Джо Уиллок"><span class="bui-outcome__title-457ff4">Джо Уиллок</span>16,00</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Дани Себальос"><span class="bui-outcome__title-457ff4">Дани Себальос</span>25</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Curtis, Ronan"><span class="bui-outcome__title-457ff4">Curtis, Ronan</span>16,50</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Джон Маркуис"><span class="bui-outcome__title-457ff4">Джон Маркуис</span>15,75</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="Энди Кэннон"><span class="bui-outcome__title-457ff4">Энди Кэннон</span>25</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Точный счет</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 bui-outcome_less-616b53 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0:2"><span class="bui-outcome__title-457ff4">0:2</span>1,85</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1:2"><span class="bui-outcome__title-457ff4">1:2</span>5,50</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2:2"><span class="bui-outcome__title-457ff4">2:2</span>42</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3:2"><span class="bui-outcome__title-457ff4">3:2</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="4:2"><span class="bui-outcome__title-457ff4">4:2</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="5:2"><span class="bui-outcome__title-457ff4">5:2</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="6:2"><span class="bui-outcome__title-457ff4">6:2</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0:3"><span class="bui-outcome__title-457ff4">0:3</span>3,20</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1:3"><span class="bui-outcome__title-457ff4">1:3</span>11,75</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2:3"><span class="bui-outcome__title-457ff4">2:3</span>94</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3:3"><span class="bui-outcome__title-457ff4">3:3</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="4:3"><span class="bui-outcome__title-457ff4">4:3</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="5:3"><span class="bui-outcome__title-457ff4">5:3</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0:4"><span class="bui-outcome__title-457ff4">0:4</span>13,00</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1:4"><span class="bui-outcome__title-457ff4">1:4</span>52</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2:4"><span class="bui-outcome__title-457ff4">2:4</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3:4"><span class="bui-outcome__title-457ff4">3:4</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="4:4"><span class="bui-outcome__title-457ff4">4:4</span>100</div>
+                    <div class="bui-outcome-4ce98d bui-outcome_gross-bcf246 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0:5"><span class="bui-outcome__title-457ff4">0:5</span>86</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1:5"><span class="bui-outcome__title-457ff4">1:5</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2:5"><span class="bui-outcome__title-457ff4">2:5</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="3:5"><span class="bui-outcome__title-457ff4">3:5</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0:6"><span class="bui-outcome__title-457ff4">0:6</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1:6"><span class="bui-outcome__title-457ff4">1:6</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="2:6"><span class="bui-outcome__title-457ff4">2:6</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0:7"><span class="bui-outcome__title-457ff4">0:7</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="1:7"><span class="bui-outcome__title-457ff4">1:7</span>100</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="0:8"><span class="bui-outcome__title-457ff4">0:8</span>100</div>
+                </div>
+            </div>
+        </div>
+        <div class="market__wrapper-50bc3a"><span class="market__title-0ff163">Чет/Нечет</span>
+            <div data-count="1" class="market__outcomes-96e4e5">
+                <div class="event__default-58231f">
+                    <div class="bui-outcome-4ce98d bui-outcome_strong-7b4653 outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="чет"><span class="bui-outcome__title-457ff4">чет</span>1,50</div>
+                    <div class="bui-outcome-4ce98d outcome-1b346b" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" title="нечет"><span class="bui-outcome__title-457ff4">нечет</span>2,45</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
