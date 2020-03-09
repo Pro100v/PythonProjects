@@ -14,6 +14,7 @@ from lxml import html
 
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from bs4 import BeautifulSoup
 import logging
 import re
@@ -125,14 +126,28 @@ def main():
     bets_utils.set_logging(logging.DEBUG)
     url = "https://www.ligastavok.ru/bets/live"
     url = 'about:blank'
+    
     driver_path = settings.PATH_CHROMEDRIVER.split('/')
     # driver_path = os.path.join(os.getcwd(), *driver_path)
     self_path = os.path.dirname(os.path.abspath(__file__))
-    driver_path = os.path.join(self_path, *driver_path)    
+    driver_path = os.path.join(self_path, *driver_path)
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     logging.debug(f"Старт программы с параметрами driver_path:{driver_path},  url:{url}")
     if os.path.exists(driver_path):
-        print(driver_path)
-        Ligastavok.execute(webdriver.Chrome(executable_path=driver_path), url)
+        # print(driver_path)
+
+        # service = Service(driver_path)
+        # service.start()
+        # wd = webdriver.Remote(service.service_url)
+        wd = webdriver.Chrome(
+            executable_path=driver_path, 
+            service_log_path=self_path,
+            options=options)
+        Ligastavok.execute(wd, url)
+        wd.close()
     else:
         print("Is not found ", driver_path)
         logging.debug("Выход из программы")
