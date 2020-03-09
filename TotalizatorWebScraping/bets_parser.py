@@ -144,10 +144,12 @@ def main():
         # wd = webdriver.Remote(service.service_url)
         wd = webdriver.Chrome(
             executable_path=driver_path, 
-            service_log_path=self_path,
-            options=options)
+            # service_log_path=os.path.join(self_path, 'logs'),
+            options=options
+        )
         Ligastavok.execute(wd, url)
-        wd.close()
+        if wd:
+            wd.quit()
     else:
         print("Is not found ", driver_path)
         logging.debug("Выход из программы")
