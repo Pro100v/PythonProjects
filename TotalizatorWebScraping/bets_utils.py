@@ -40,3 +40,7 @@ def get_webdriver_path(browser=CHROME) -> str:
 
 def app_path():
     return os.path.dirname(os.path.abspath(__file__))
+
+
+def clr_txt(s: str) -> str:
+    return s.replace('\\n', '').replace('\\t', '').replace("', '", '').strip()
