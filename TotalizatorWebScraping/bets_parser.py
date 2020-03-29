@@ -1,7 +1,7 @@
 import datetime
 import os.path
 import time
-from typing import List, Dict
+from typing import List, Dict, Any
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 from dataclasses import dataclass, field
 import logging
 import re
+import hashlib
 
 import settings
 import bets_utils
@@ -127,6 +128,7 @@ class BaseBetParser(object):
         self.url = url
         self.errors = {}
         self.idling = 0
+        self.hash_content = None
         pass
 
     def process(self):
@@ -425,19 +427,28 @@ class LigastavokEventData:
 
 
 class LigastavokLive(LigastavokBase):
+    processed_data: List[LigastavokEventData]
+    bet_matches: List[LigastavokEventData]
+
     def __init__(self, web_driver: webdriver, url: str):
         super(LigastavokLive, self).__init__(web_driver=web_driver, url=url)
         self.bet_matches = []
+        self.bet_matches_url = set()
+        self.processed_data = []
 
     def process(self):
-
         logging.debug(f"Загружаем контент в BeautifulSoup")
         # b_s = BeautifulSoup(self.get_content(), "lxml")
         b_s = BeautifulSoup(self.get_content(), "html.parser")
+        hash_content = hashlib.md5(str(b_s).encode()).hexdigest()
+        logging.info(f"Хеш контента:{hash_content}")
+        if self.hash_content == hash_content:
+            return
         all_events = b_s.find_all('div', class_=re.compile('bui-event-row'), itemtype="http://schema.org/Event")
-        data = [LigastavokEventData(event) for event in all_events]
-        for i, item in enumerate(data):
-            print(i, item)
+        self.processed_data = [LigastavokEventData(event) for event in all_events]
+        self.hash_content = hash_content
+        # for i, item in enumerate(self.processed_data):
+        #     print(i, item)
 
         # for event in all_events:
         #     _main = event.find('div', class_=re.compile('column_main'))
@@ -460,6 +471,15 @@ class LigastavokLive(LigastavokBase):
         #         bets.append([clr_txt(element.string) for element in outcome.div.contents if element.name == 'div'])
         #     print(f"league:{league}; status:{status}; href:{href}; home_team:{home_team}; guest_team:{guest_team}; "
         #           f"current_score:{current_score}; total_score:{total_score}; bets:{bets}")
+
+    def check_changes(self):
+        super(LigastavokLive, self).check_changes()
+        new_events = [event for event in self.processed_data if event.href not in self.bet_matches_url]
+        logging.debug(f"Обнаружено новых событий: {len(new_events)}")
+        for event in new_events:
+            self.bet_matches_url.add(event.href)
+            self.bet_matches.append(event)
+            print(event)
 
     def prepare(self):
         super(LigastavokLive, self).prepare()
