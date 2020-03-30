@@ -1,7 +1,7 @@
 import datetime
 import os.path
 import time
-from typing import List, Dict, Any
+from typing import List
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -34,7 +34,8 @@ class BetParser(object):
 
         """
         logging.debug(
-            f"Создается экземпляр {self.__class__.__name__} с параметрами webdriver:{webdriver.name} url:{url}")
+            f"Создается экземпляр {self.__class__.__name__} "
+            f"с параметрами webdriver:{webdriver.name} url:{url}")
         assert webdriver and url
         self.driver = webdriver
         self.url = url
@@ -48,7 +49,8 @@ class BetParser(object):
         logging.debug(f"Создаем новую вкладку скриптом js: {js}")
         self.driver.execute_script(js)
 
-        # TODO: в класс передавать родительский объект и в него записывать себя для возможности управления из родителя
+        # TODO: в класс передавать родительский объект и в него записывать
+        #  себя для возможности управления из родителя
 
     def process(self):
         raise NotImplementedError()
@@ -65,14 +67,17 @@ class BetParser(object):
         timeout = 30
         logging.debug(f"ждем в течении {timeout} сек. для загрузки контента")
         try:
-            WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.ID, "content")))
+            WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located((By.ID, "content")))
         except TimeoutException:
-            logging.debug(f"время ожидания загрузки контента превысело {timeout} сек. ")
+            logging.debug(
+                f"время ожидания загрузки контента превысело {timeout} сек. ")
             self.idling = settings.MAX_IDLE
             return
 
         logging.debug(f"контент загружен. Загружаем контент в BeautifulSoup")
-        self.soup = BeautifulSoup(self.driver.find_element_by_id("content"), "lxml")
+        self.soup = BeautifulSoup(self.driver.find_element_by_id("content"),
+                                  "lxml")
 
     def __del__(self):
         if self.driver:
@@ -99,7 +104,7 @@ class LigastavokProbe(BetParser):
     def process(self):
         self.driver.switch_to.window(self.tab_name)
         # print(self.html)
-        xpath = "//div[contains(@class,'bui-outcome')]"
+        # xpath = "//div[contains(@class,'bui-outcome')]"
         all_bets = self.soup.find_all('div', class_=re.compile('bui-outcome'))
         for bet in all_bets:
             parent = str(bet.parent.parent.parent.span.text)
@@ -122,7 +127,8 @@ class BaseBetParser(object):
 
     def __init__(self, web_driver: webdriver, url: str):
         logging.debug(
-            f"Создается экземпляр {self.__class__.__name__} с параметрами webdriver:{web_driver.name} url:{url}")
+            f"Создается экземпляр {self.__class__.__name__} "
+            f"с параметрами webdriver:{web_driver.name} url:{url}")
         # assert webdriver and url
         self.driver = web_driver
         self.url = url
@@ -163,10 +169,14 @@ class LigastavokBase(BaseBetParser):
         timeout = 30
         logging.debug(f"ждем в течении {timeout} сек. для загрузки контента")
         try:
-            WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.ID, "content")))
+            WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located((By.ID, "content")))
         except TimeoutException:
-            logging.debug(f"время ожидания загрузки контента превысело {timeout} сек. ")
-            # self.errors.  todo: добавить сообщение об ошибке. Понять почему ошибки словарем сделаны
+            logging.debug(
+                f"время ожидания загрузки контента превысело {timeout} сек. ")
+            # self.errors.
+            # todo: добавить сообщение об ошибке.
+            # todo: Понять почему ошибки словарем сделаны
             self.idling = settings.MAX_IDLE
             return
         logging.debug("данные успешно загруженны")
@@ -192,13 +202,15 @@ class LigastavokLiveDataTemp:
     status: str = None  # статус события на момент извлечения данных
     href: str = None  # ссылка на страницу с детальными ставками
     member_1: str = None  # название домашней комманды, либо одиночного парри
-    member_2: str = None  # название гостевой комманды, либо пусто для одиночного пври
+    member_2: str = None  # название гостевой комманды,либо пусто для 1-го пари
     current_score: str = None  # счет события на момент извлечения данных
     total_score: str = None  # общий счет на момент извлечния данных
     bets: List[str] = None  # перечень ставок
 
-    def __init__(self, raw_data=None, league=None, status=None, href=None, member_1=None,
-                 member_2=None, current_score=None, total_score=None, bets=None):
+    def __init__(self, raw_data=None, league=None, status=None, href=None,
+                 member_1=None,
+                 member_2=None, current_score=None, total_score=None,
+                 bets=None):
         self.event_raw_data = raw_data
         self.league = league
         self.status = status
@@ -209,15 +221,19 @@ class LigastavokLiveDataTemp:
         self.total_score = total_score
         self.bets = bets
 
+        self._div_main = None
+        self._div_info = None
+        self._members = None
+
     def __post_init__(self):
-        self.league: str = None  # Лига, турнир события
-        self.status: str = None  # статус события на момент извлечения данных
-        self.href: str = None  # ссылка на страницу с детальными ставками
-        self.member_1: str = None  # название домашней комманды, либо одиночного парри
-        self.member_2: str = None  # название гостевой комманды, либо пусто для одиночного пври
-        self.current_score: str = None  # счет события на момент извлечения данных
-        self.total_score: str = None  # общий счет на момент извлечния данных
-        self.bets: List[str] = None  # перечень ставок
+        self.league: str = ''  # Лига, турнир события
+        self.status: str = ''  # статус события на момент извлечения данных
+        self.href: str = ''  # ссылка на страницу с детальными ставками
+        self.member_1: str = ''  # название домашней комманды/одиночного парри
+        self.member_2: str = ''  # название гостевой комманды
+        self.current_score: str = ''  # счет события на момент извлечения
+        self.total_score: str = ''  # общий счет на момент извлечния данных
+        self.bets: List[str] = []  # перечень ставок
 
         self.updated = False
         self._div_main = None
@@ -226,14 +242,14 @@ class LigastavokLiveDataTemp:
         self.errors = []
 
     def reset(self):
-        self._league = None
-        self._status = None
-        self._href = None
-        self._member_1 = None
-        self._member_2 = None
-        self._current_score = None
-        self._total_score = None
-        self._bets = None
+        self._league = ''
+        self._status = ''
+        self._href = ''
+        self._member_1 = ''
+        self._member_2 = ''
+        self._current_score = ''
+        self._total_score = ''
+        self._bets = []
 
         self._div_main = None
         self._div_info = None
@@ -242,7 +258,8 @@ class LigastavokLiveDataTemp:
     @property
     def event_raw_data(self):
         if not self._event_raw_data:
-            raise ValueError(f'{self.__class__.__name__!r}.event_raw_data cannot be empty')
+            raise ValueError(
+                f'{self.__class__.__name__!r}.event_raw_data cannot be empty')
         return self._event_raw_data
 
     @event_raw_data.setter
@@ -250,23 +267,26 @@ class LigastavokLiveDataTemp:
         print(f'def event_raw_data(self, value={value!r})')
         if not value:
             value = BeautifulSoup()
-        if isinstance(value, str):
+        elif isinstance(value, str):
             value = BeautifulSoup(value)
-        if not isinstance(value, (BeautifulSoup,)):
-            raise ValueError(f"{self.__class__.__name__!r}.event_raw_data must be the 'BeautifulSoup' instance")
+        elif not isinstance(value, (BeautifulSoup,)):
+            raise ValueError(
+                f"{self.__class__.__name__!r}.event_raw_data "
+                f"must be the 'BeautifulSoup' instance")
         self._event_raw_data = value
         self.reset()
 
     @property
     def div_main(self):
         if not self._div_main:
-            self._div_main = self.event_raw_data.find('div', class_=re.compile('column_main'))
+            self._div_main = self.event_raw_data.find('div', class_=re.compile(
+                "column_main"))
         return self._div_main or BeautifulSoup()
 
     @property
     def league(self):
         if not self._league:
-            elem = self.div_main.find('div', class_=re.compile('league'))
+            elem = self.div_main.find('div', class_=re.compile("league"))
             self._league = clr_txt(elem.get_text()) if elem else ""
         return self._league
 
@@ -288,19 +308,22 @@ class LigastavokLiveDataTemp:
     @property
     def div_info(self):
         if not self._div_info:
-            self._div_info = self.div_main.find('div', class_=re.compile('info'))
+            self._div_info = self.div_main.find('div',
+                                                class_=re.compile('info'))
         return self._div_info or BeautifulSoup()
 
     @property
     def members(self):
         if not self._members:
             elem = self.div_info.a
-            self._members = [element.string for element in elem.find_all('span')] if elem else []
+            self._members = [element.string for element in
+                             elem.find_all('span')] if elem else []
         return self._members
 
     @property
     def member_1(self):
-        return '' if not self.members or len(self.members) < 1 else self.members[0]
+        return '' if not self.members or len(self.members) < 1 else \
+            self.members[0]
 
     @member_1.setter
     def member_1(self, value):
@@ -308,7 +331,8 @@ class LigastavokLiveDataTemp:
 
     @property
     def member_2(self):
-        return '' if not self.members or len(self.members) < 2 else self.members[1]
+        return '' if not self.members or len(self.members) < 2 else \
+            self.members[1]
 
     @member_2.setter
     def member_2(self, value):
@@ -329,7 +353,8 @@ class LigastavokLiveDataTemp:
     def current_score(self):
         if not self._current_score:
             current_score = self.div_info.find('div', re.compile('current'))
-            self._current_score = clr_txt(current_score.get_text()) if current_score else ''
+            self._current_score = clr_txt(
+                current_score.get_text()) if current_score else ''
         return self._current_score
 
     @current_score.setter
@@ -340,7 +365,8 @@ class LigastavokLiveDataTemp:
     def total_score(self):
         if not self._total_score:
             total_score = self.div_info.find('div', re.compile('total'))
-            self._total_score = clr_txt(total_score.get_text()) if total_score else ''
+            self._total_score = clr_txt(
+                total_score.get_text()) if total_score else ''
         return self._total_score
 
     @total_score.setter
@@ -350,11 +376,15 @@ class LigastavokLiveDataTemp:
     @property
     def bets(self):
         if not self._bets:
-            outcomes = self.event_raw_data.find('div', re.compile('column_outcome'))
+            outcomes = self.event_raw_data.find('div',
+                                                re.compile('column_outcome'))
             bets = []
             if outcomes:
-                for outcome in outcomes.find_all('div', re.compile('bui-group-outcome__wrapper')):
-                    bets.append([clr_txt(element.string) for element in outcome.div.contents if element.name == 'div'])
+                for outcome in outcomes.find_all('div', re.compile(
+                        'bui-group-outcome__wrapper')):
+                    bets.append([clr_txt(element.string)
+                                 for element in outcome.div.contents
+                                 if element.name == 'div'])
             self._bets = bets
         return self._bets
 
@@ -370,14 +400,16 @@ class LigastavokBetData:
     status: str = field(init=False, repr=True)
     current_score: str = field(init=False, repr=True)
     total_score: str = field(init=False, repr=True)
-    bets: Dict = field(init=False, repr=True)
+    bets: List[List[str]] = field(init=False, repr=True)
 
     def __post_init__(self):
         self._snapshot_time = datetime.datetime.now()
-        div_main = self._data.find('div', class_=re.compile('column_main')) or BeautifulSoup()
+        div_main = self._data.find('div', class_=re.compile(
+            'column_main')) or BeautifulSoup()
         elem = div_main.find('div', class_=re.compile('status'))
         self.status = clr_txt(elem.get_text()) if elem else ""
-        div_info = div_main.find('div', class_=re.compile('info')) or BeautifulSoup()
+        div_info = div_main.find('div',
+                                 class_=re.compile('info')) or BeautifulSoup()
 
         elem = div_info.find('div', re.compile('current'))
         self.current_score = clr_txt(elem.get_text()) if elem else ''
@@ -387,8 +419,12 @@ class LigastavokBetData:
         div_outcomes = self._data.find('div', re.compile('column_outcome'))
         bets = []
         if div_outcomes:
-            for outcome in div_outcomes.find_all('div', re.compile('bui-group-outcome__wrapper')):
-                bets.append([clr_txt(element.string) for element in outcome.div.contents if element.name == 'div'])
+            for outcome in div_outcomes.find_all('div', re.compile(
+                    'bui-group-outcome__wrapper')):
+                bets.append(
+                    [clr_txt(element.string)
+                     for element in outcome.div.contents
+                     if element.name == 'div'])
         self.bets = bets
 
     @property
@@ -402,23 +438,28 @@ class LigastavokBetData:
 
 @dataclass
 class LigastavokEventData:
-    _data: BeautifulSoup = field(init=True, repr=False, default_factory=lambda: BeautifulSoup())
+    _data: BeautifulSoup = field(init=True, repr=False,
+                                 default_factory=lambda: BeautifulSoup())
     league: str = field(init=False, repr=True, default="Undefine")
     href: str = field(init=False, repr=True, default="Undefine")
     member_1: str = field(init=False, repr=True, default="Undefine")
     member_2: str = field(init=False, repr=True, default="-")
-    bets: List[LigastavokBetData] = field(init=False, repr=True, default_factory=lambda: [])
+    bets: List[LigastavokBetData] = field(init=False, repr=True,
+                                          default_factory=lambda: [])
 
     def __post_init__(self):
         if isinstance(self._data, str):
             self._data = BeautifulSoup(self._data)
-        div_main = self._data.find('div', class_=re.compile('column_main')) or BeautifulSoup()
+        div_main = self._data.find('div', class_=re.compile(
+            'column_main')) or BeautifulSoup()
         elem = div_main.find('div', class_=re.compile('league'))
         self.league = clr_txt(elem.get_text()) if elem else self.league
-        div_info = div_main.find('div', class_=re.compile('info')) or BeautifulSoup()
+        div_info = div_main.find('div',
+                                 class_=re.compile('info')) or BeautifulSoup()
         elem = div_info.a
         self.href = elem.get('href') if elem else self.href
-        members = [element.string for element in elem.find_all('span')] if elem else []
+        members = [element.string for element in
+                   elem.find_all('span')] if elem else []
         self.member_1 = '' if not members or len(members) < 1 else members[0]
         self.member_2 = '' if not members or len(members) < 2 else members[1]
         elem = div_info.find('div', re.compile('total'))
@@ -445,17 +486,21 @@ class LigastavokLive(LigastavokBase):
         if self.hash_content == hash_content:
             self.processed_data = []
             return
-        all_events = b_s.find_all('div', class_=re.compile('bui-event-row'), itemtype="http://schema.org/Event")
-        self.processed_data = [LigastavokEventData(event) for event in all_events]
+        all_events = b_s.find_all('div', class_=re.compile('bui-event-row'),
+                                  itemtype="http://schema.org/Event")
+        self.processed_data = [LigastavokEventData(event) for event in
+                               all_events]
         self.hash_content = hash_content
         # for i, item in enumerate(self.processed_data):
         #     print(i, item)
 
         # for event in all_events:
         #     _main = event.find('div', class_=re.compile('column_main'))
-        #     league = _main.find('div', class_=re.compile('league')).get_text()
+        #     league = _main.find('div', class_=re.compile(
+        #     'league')).get_text()
         #     league = clr_txt(league)
-        #     status = (_main.find('div', class_=re.compile('status')).get_text())
+        #     status = (_main.find('div', class_=re.compile(
+        #     'status')).get_text())
         #     status = clr_txt(status)
         #     _info = _main.find('div', class_=re.compile('info'))
         #     href = _info.a.get('href')
@@ -468,14 +513,20 @@ class LigastavokLive(LigastavokBase):
         #     total_score = total_score.get_text() if total_score else ''
         #     _outcomes = event.find('div', re.compile('column_outcome'))
         #     bets = []
-        #     for outcome in _outcomes.find_all('div', re.compile('bui-group-outcome__wrapper')):
-        #         bets.append([clr_txt(element.string) for element in outcome.div.contents if element.name == 'div'])
-        #     print(f"league:{league}; status:{status}; href:{href}; home_team:{home_team}; guest_team:{guest_team}; "
-        #           f"current_score:{current_score}; total_score:{total_score}; bets:{bets}")
+        #     for outcome in _outcomes.find_all('div', re.compile(
+        #     'bui-group-outcome__wrapper')):
+        #         bets.append([clr_txt(element.string)
+        #         for element in outcome.div.contents
+        #         if element.name == 'div'])
+        #     print(f"league:{league}; status:{status}; href:{href}; "
+        #           f"home_team:{home_team}; guest_team:{guest_team}; "
+        #           f"current_score:{current_score}; "
+        #           f"total_score:{total_score}; bets:{bets}")
 
     def check_changes(self):
         super(LigastavokLive, self).check_changes()
-        new_events = [event for event in self.processed_data if event.href not in self.bet_matches_url]
+        new_events = [event for event in self.processed_data if
+                      event.href not in self.bet_matches_url]
         logging.debug(f"Обнаружено новых событий: {len(new_events)}")
         for event in new_events:
             self.bet_matches_url.add(event.href)
@@ -486,15 +537,25 @@ class LigastavokLive(LigastavokBase):
         super(LigastavokLive, self).prepare()
 
     def get_content(self) -> str:
-        # file = os.path.join(bets_utils.app_path(), "pages", "ligastavok_live.html")
-        # with open(file, 'r') as f:
-        #     return str(f.readlines())
-        return self.driver.find_element_by_id("content").get_attribute('innerHTML')
+        if settings.WO_INTERNET:
+            file = os.path.join(bets_utils.app_path(),
+                                "pages", "ligastavok_live.html")
+            with open(file, 'r', encoding='utf-8') as f:
+                return str(f.readlines())
+        else:
+            return self.driver.find_element_by_id(
+                "content").get_attribute('innerHTML')
+        return self.driver.find_element_by_id("content").get_attribute(
+            'innerHTML')
 
 
 def main():
     bets_utils.set_logging(logging.DEBUG)
-    url = "https://www.ligastavok.ru/bets/live"
+    if settings.WO_INTERNET:
+        url = os.path.join("file://", bets_utils.app_path(), "pages",
+                           "ligastavok_live.html")
+    else:
+        url = "https://www.ligastavok.ru/bets/live"
     # url = 'about:blank'
 
     driver_path = bets_utils.get_webdriver_path(browser=bets_utils.CHROME)
@@ -514,7 +575,8 @@ def main():
     prefs = {"profile.managed_default_content_settings.images": 2}
     options.add_experimental_option("prefs", prefs)
 
-    logging.debug(f"Старт программы с параметрами driver_path:{driver_path}, url:{url}")
+    logging.debug(
+        f"Старт программы с параметрами driver_path:{driver_path}, url:{url}")
     if os.path.exists(driver_path):
         wd = webdriver.Chrome(
             executable_path=driver_path,
