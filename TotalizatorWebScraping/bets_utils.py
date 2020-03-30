@@ -10,10 +10,10 @@ FIREFOX = "firefox".upper()
 
 def set_logging(logging_level=logging.INFO):
     format = "%(asctime)s (%(threadName)-9s): %(message)s"
-    # log_lvl = logging.INFO  # logging.INFO /  logging.DEBUG  / logging.WARNING
+    # log_lvl = logging.INFO  # logging.INFO / logging.DEBUG / logging.WARNING
     try:
         log_lvl = logging._checkLevel(logging_level)
-    except Exception as exp:
+    except Exception:
         log_lvl = logging.INFO
 
     logging.basicConfig(format=format, level=log_lvl,
@@ -29,17 +29,18 @@ def get_webdriver_path(browser=CHROME) -> str:
         raise NotImplementedError()
     assert driver_path
 
-    parent = app_path()
+    # parent = app_path()
     if system_version.startswith("LINUX"):
-        return os.path.join(parent, *driver_path, "chromedriver")
+        return app_path(*driver_path, "chromedriver")
     if system_version.startswith("WINDOWS"):
-        return os.path.join(parent, *driver_path, "chromedriver.exe")
+        return app_path(*driver_path, "chromedriver.exe")
     if system_version.startswith("DARWIN"):
-        return os.path.join(parent, *driver_path, "chromedriver-mac")
+        return app_path(*driver_path, "chromedriver-mac")
 
 
-def app_path():
-    return os.path.dirname(os.path.abspath(__file__))
+def app_path(*args):
+    path = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(path, *args)
 
 
 def clr_txt(s: str) -> str:

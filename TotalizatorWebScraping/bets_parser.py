@@ -537,14 +537,6 @@ class LigastavokLive(LigastavokBase):
         super(LigastavokLive, self).prepare()
 
     def get_content(self) -> str:
-        if settings.WO_INTERNET:
-            file = os.path.join(bets_utils.app_path(),
-                                "pages", "ligastavok_live.html")
-            with open(file, 'r', encoding='utf-8') as f:
-                return str(f.readlines())
-        else:
-            return self.driver.find_element_by_id(
-                "content").get_attribute('innerHTML')
         return self.driver.find_element_by_id("content").get_attribute(
             'innerHTML')
 
@@ -552,8 +544,7 @@ class LigastavokLive(LigastavokBase):
 def main():
     bets_utils.set_logging(logging.DEBUG)
     if settings.WO_INTERNET:
-        url = os.path.join("file://", bets_utils.app_path(), "pages",
-                           "ligastavok_live.html")
+        url = "file://" + bets_utils.app_path("pages", "ligastavok_live.html")
     else:
         url = "https://www.ligastavok.ru/bets/live"
     # url = 'about:blank'
