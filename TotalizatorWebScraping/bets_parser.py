@@ -443,6 +443,7 @@ class LigastavokLive(LigastavokBase):
         hash_content = hashlib.md5(str(b_s).encode()).hexdigest()
         logging.info(f"Хеш контента:{hash_content}")
         if self.hash_content == hash_content:
+            self.processed_data = []
             return
         all_events = b_s.find_all('div', class_=re.compile('bui-event-row'), itemtype="http://schema.org/Event")
         self.processed_data = [LigastavokEventData(event) for event in all_events]
