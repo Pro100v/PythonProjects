@@ -7,4 +7,4 @@ BET_SLEEP = 3
 # где расположены пути к вебдрайверк хрома
 PATH_CHROMEDRIVER = "drivers/chromedriver/"
 # WO_INTERNET = True загружать контент из интеренета или локального файла
-WO_INTERNET = True
+WO_INTERNET = False

@@ -33,7 +33,7 @@ def main():
     prefs = {"profile.managed_default_content_settings.images": 2}
     options.add_experimental_option("prefs", prefs)
 
-    logging.debug(
+    logging.info(
         f"Старт программы с параметрами driver_path:{driver_path}, url:{url}")
     if os.path.exists(driver_path):
         wd = webdriver.Chrome(
@@ -45,8 +45,8 @@ def main():
         if wd:
             wd.quit()
     else:
-        print("Is not found ", driver_path)
-        logging.debug("Выход из программы")
+        logging.info("Is not found path to web driver:", driver_path)
+        logging.info("Выход из программы")
 
 
 if __name__ == "__main__":

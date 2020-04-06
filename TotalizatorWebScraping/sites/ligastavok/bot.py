@@ -20,12 +20,21 @@ class LigastavokBase(BaseBetParser, ABC):
     """
     базовый класс для сайта https://www.ligastavok.ru
     """
+    home_link = 'https://www.ligastavok.ru'
 
     def prepare(self):
         logging.debug(f"Переходим по url:{self.url}")
-        self.driver.get(self.url)
+        self.tab_name = hashlib.md5(str(self.url).encode()).hexdigest()
+
+        js = f"window.open('{self.url}', '{self.tab_name}');"
+        logging.debug(
+            f"выполняем скрипт по созданию новой вкладки:'{self.tab_name}'"
+        )
+        self.driver.execute_script(js)
+        # self.driver.get(self.url)
 
         timeout = 30
+        self.driver.switch_to.window(self.tab_name)
         logging.debug(f"ждем в течении {timeout} сек. для загрузки контента")
         try:
             WebDriverWait(self.driver, timeout).until(
@@ -53,6 +62,7 @@ class LigastavokLive(LigastavokBase):
 
     def process(self):
         logging.debug(f"Загружаем контент в BeautifulSoup")
+        self.driver.switch_to.window(self.tab_name)
         # b_s = BeautifulSoup(self.get_content(), "lxml")
         b_s = BeautifulSoup(self.get_content(), "html.parser")
         hash_content = hashlib.md5(str(b_s).encode()).hexdigest()
