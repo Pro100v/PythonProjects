@@ -42,6 +42,7 @@ def main():
         )
         # LigastavokProbe.execute(wd, url)   # парсер детальных данных
         LigastavokLive.execute(wd, url)
+        # LigastavokEvent.execute(wd, url)
         if wd:
             wd.quit()
     else:

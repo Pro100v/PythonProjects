@@ -8,3 +8,7 @@ BET_SLEEP = 3
 PATH_CHROMEDRIVER = "drivers/chromedriver/"
 # WO_INTERNET = True загружать контент из интеренета или локального файла
 WO_INTERNET = False
+# DOWNLOAD_TIMEOUT = 30 время ожидания загрузки страницы с контентом
+DOWNLOAD_TIMEOUT = 30
+# DOWNLOAD_ATTEMPT = 3 кол-во попыток загрузки данных
+DOWNLOAD_ATTEMPTS = 3
