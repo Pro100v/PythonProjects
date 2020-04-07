@@ -1,5 +1,6 @@
 import logging
 import re
+import threading
 import time
 from abc import ABC
 from typing import List
@@ -24,6 +25,13 @@ class LigastavokBase(BaseBetParser, ABC):
     """
     base_url = 'https://www.ligastavok.ru'
 
+    def __init__(self, web_driver: webdriver, url: str, mutex=None):
+        super(LigastavokBase, self).__init__(
+            web_driver=web_driver,
+            url=url,
+        )
+        self.mutex = threading.Lock() if not mutex else mutex
+
     def prepare(self):
         self.url = urljoin(self.base_url, self.url.strip())
         logging.debug(f"Загружаем страницу по url:{self.url}")
@@ -47,22 +55,27 @@ class LigastavokBase(BaseBetParser, ABC):
         """
         timeout = settings.DOWNLOAD_TIMEOUT
         attempts = settings.DOWNLOAD_ATTEMPTS
-        self.driver.switch_to.window(self.tab_name)
-        logging.debug(
-            f"Вкладка создана. "
-            f"Ждем {timeout} сек. для загрузки контента."
-        )
-        for i in range(1, attempts + 1):
-            try:
-                logging.debug(f"Попытка {i}")
-                WebDriverWait(self.driver, timeout).until(
-                    EC.visibility_of_element_located((By.ID, "content")))
-                logging.debug("данные успешно загруженны")
-                break
-            except TimeoutException:
-                logging.warning(f"Время ожидания загрузки истекло.",
-                                exc_info=True)
-                self.driver.switch_to.window(self.tab_name)
+        i = 0
+        try:
+            self.mutex.acquire()
+            self.driver.switch_to.window(self.tab_name)
+            logging.debug(
+                f"Вкладка создана. "
+                f"Ждем {timeout} сек. для загрузки контента."
+            )
+            for i in range(1, attempts + 1):
+                try:
+                    logging.debug(f"Попытка {i}")
+                    WebDriverWait(self.driver, timeout).until(
+                        EC.visibility_of_element_located((By.ID, "content")))
+                    logging.debug("данные успешно загруженны")
+                    break
+                except TimeoutException:
+                    logging.warning(f"Время ожидания загрузки истекло.",
+                                    exc_info=True)
+                    self.driver.switch_to.window(self.tab_name)
+        finally:
+            self.mutex.release()
 
         if i == attempts:
             logging.critical(f"Использован лимит попыток на загрузку контента")
@@ -92,8 +105,12 @@ class LigastavokBase(BaseBetParser, ABC):
         """
         logging.debug(f"Обновляем контент класса")
         wd = self.driver
-        wd.switch_to.window(self.tab_name)
-        html = wd.find_element_by_id("content").get_attribute('innerHTML')
+        try:
+            self.mutex.acquire()
+            wd.switch_to.window(self.tab_name)
+            html = wd.find_element_by_id("content").get_attribute('innerHTML')
+        finally:
+            self.mutex.release()
         html_hash = to_hash(html)
         self.is_content_changed = self.content_hash != html_hash
         if self.is_content_changed:
@@ -110,8 +127,12 @@ class LigastavokLive(LigastavokBase):
     processed_data: List[LigastavokEventData]
     bet_matches: List[LigastavokEventData]
 
-    def __init__(self, web_driver: webdriver, url: str):
-        super(LigastavokLive, self).__init__(web_driver=web_driver, url=url)
+    def __init__(self, web_driver: webdriver, url: str, mutex=None):
+        super(LigastavokLive, self).__init__(
+            web_driver=web_driver,
+            url=url,
+            mutex=mutex
+        )
         self.bet_matches = []
         self.bet_matches_url = set()
         self.processed_data = []
@@ -141,7 +162,7 @@ class LigastavokLive(LigastavokBase):
             self.bet_matches.append(event)
             print(event)
             url = urljoin(self.base_url, event.href)
-            LigastavokEvent.execute(self.driver, url)
+            LigastavokEvent(self.driver, url, self.mutex).start()
             time.sleep(settings.BET_SLEEP)
 
     # def get_content(self) -> str:

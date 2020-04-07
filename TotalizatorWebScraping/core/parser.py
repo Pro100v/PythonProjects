@@ -1,5 +1,6 @@
 import logging
 import time
+import threading
 
 from selenium import webdriver
 
@@ -7,12 +8,13 @@ import settings
 from bets_utils import to_hash, get_base_url
 
 
-class BaseBetParser(object):
+class BaseBetParser(threading.Thread):
     """
     парсер страничек с лайвом
     """
 
     def __init__(self, web_driver: webdriver, url: str):
+        super(BaseBetParser, self).__init__()
         logging.debug(
             f"Создается экземпляр {self.__class__.__name__} "
             f"с параметрами webdriver:{web_driver.name} url:{url}")
@@ -62,13 +64,24 @@ class BaseBetParser(object):
         self.driver.close()
         self.driver.switch_to.window(self.driver.window_handles[-1])
 
+    def run(self) -> None:
+        self.prepare()
+        while self.idling < settings.MAX_IDLE:
+            self.process()
+            self.check_changes()
+            self.counter += 1
+            time.sleep(settings.BET_SLEEP)
+        self.close()
+
     @classmethod
     def execute(cls, wb: webdriver, url: str):
         instance = cls(wb, url)
-        instance.prepare()
-        while instance.idling < settings.MAX_IDLE:
-            instance.process()
-            instance.check_changes()
-            instance.counter += 1
-            time.sleep(settings.BET_SLEEP)
-        instance.close()
+        instance.start()
+        instance.join()
+        # instance.prepare()
+        # while instance.idling < settings.MAX_IDLE:
+        #     instance.process()
+        #     instance.check_changes()
+        #     instance.counter += 1
+        #     time.sleep(settings.BET_SLEEP)
+        # instance.close()
