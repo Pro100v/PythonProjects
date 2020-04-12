@@ -42,7 +42,7 @@ def main():
         )
         # LigastavokProbe.execute(wd, url)   # парсер детальных данных
         # LigastavokLive.execute(wd, url)
-        ls = LigastavokLive(wd, url)
+        ls = LigastavokLive(web_driver=wd, url=url)
         ls.start()
         ls.join()
         # LigastavokEvent.execute(wd, url)
