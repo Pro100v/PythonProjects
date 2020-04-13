@@ -1,7 +1,6 @@
 import logging
 import time
 
-
 from typing import Optional, List, NoReturn
 from threading import Thread, Lock
 
@@ -41,6 +40,12 @@ class BaseBetParser(Thread):
         self.content_hash = None
         self.is_content_changed = False
         self.counter = 0
+        self._terminate = False
+
+        self.__post_init__()
+        pass
+
+    def __post_init__(self) -> NoReturn:
         pass
 
     def process(self) -> NoReturn:
@@ -57,11 +62,22 @@ class BaseBetParser(Thread):
         return False
 
     @property
-    def isErrorPage(self):
+    def is_error_page(self):
         res = self.check_404()
         if res:
             logging.critical(f"Ошибка 404! (url:{self.url})")
         return res
+
+    def check_terminate(self):
+        """метод проверяет условие для завершения обработки класса """
+        if not self._terminate:
+            self._terminate = self.idling > settings.MAX_IDLE and \
+                              len(self.children) == 0
+
+    @property
+    def terminate(self):
+        self.check_terminate()
+        return self._terminate
 
     def load_new_tab(self):
         """
@@ -72,11 +88,8 @@ class BaseBetParser(Thread):
         logging.debug(
             f"Выполняем скрипт по созданию новой вкладки:'{self.tab_name}'"
         )
-        try:
-            self.driver_lock.acquire()
+        with self.driver_lock:
             self.driver.execute_script(js)
-        finally:
-            self.driver_lock.release()
         logging.debug(f"Вкладка успешно создана.")
 
     def waiting_page_load(self, locator, timeout=None, attempts=None):
@@ -94,8 +107,7 @@ class BaseBetParser(Thread):
         i = 0
         logging.debug(f"Ждем {timeout}сек. для загрузки контента "
                       f"(всего попыток {attempts})")
-        try:
-            self.driver_lock.acquire()
+        with self.driver_lock:
             self.driver.switch_to.window(self.tab_name)
             for i in range(1, attempts + 1):
                 try:
@@ -108,8 +120,6 @@ class BaseBetParser(Thread):
                     logging.warning(f"Время ожидания загрузки истекло.",
                                     exc_info=True)
                     self.driver.switch_to.window(self.tab_name)
-        finally:
-            self.driver_lock.release()
 
         if i == attempts:
             logging.critical(f"Использован лимит попыток на загрузку контента")
@@ -121,6 +131,7 @@ class BaseBetParser(Thread):
         :return:
         """
         self.idling = settings.MAX_IDLE
+        self._terminate = True
 
     def close(self):
         # закрываем всех потомков
@@ -128,26 +139,20 @@ class BaseBetParser(Thread):
             child.close()
         # удаляем себя из перечня предка
         if self.parent and self in self.parent.children:
-            try:
-                self.parent.my_lock.acquire()
+            with self.parent.my_lock:
                 self.parent.children.remove(self)
-            finally:
-                self.parent.my_lock.release()
         # закрываем вкладку
-        try:
-            self.driver_lock.acquire()
+        with self.driver_lock:
             self.driver.switch_to.window(self.tab_name)
             self.driver.close()
             self.driver.switch_to.window(self.driver.window_handles[0])
-        finally:
-            self.driver_lock.release()
         logging.info(f"Поток {self.getName()} закрывается. "
                      f"Кол-во обработок:{self.counter}")
 
     def run(self) -> None:
         self.prepare()
-        if not self.isErrorPage:
-            while self.idling < settings.MAX_IDLE or len(self.children) > 0:
+        if not self.is_error_page:
+            while not self.terminate:
                 self.process()
                 self.check_changes()
                 self.idling += 1

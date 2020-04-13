@@ -1,6 +1,6 @@
 import logging
 import re
-import time
+# import time
 from abc import ABC
 from typing import List
 from urllib.parse import urljoin
@@ -10,8 +10,9 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 
 
-import settings
+# import settings
 from bets_utils import to_hash
+from core.dispatcher import Dispatcher
 from core.parser import BaseBetParser
 from sites.ligastavok.data import LigastavokEventData
 
@@ -22,53 +23,11 @@ class LigastavokBase(BaseBetParser, ABC):
     """
     base_url = 'https://www.ligastavok.ru'
 
-    # def __init__(self, web_driver: webdriver, url: str, mutex=None):
-    #     super(LigastavokBase, self).__init__(
-    #         web_driver=web_driver,
-    #         url=url,
-    #     )
-    #     self.driver_lock = threading.Lock() if not mutex else mutex
-
     def prepare(self):
         logging.debug(f"Загружаем страницу по url:{self.url}")
         self.url = urljoin(self.base_url, self.url).strip()
         self.load_new_tab()
         self.waiting_page_load(locator=(By.ID, "content"))
-
-    # def waiting_page_load(self):
-    #     """
-    #     метод ожидает закгрузки контента
-    #     переменые timeout - время ожидания, attempts - кол-во попыток
-    #     если все попытки завершились не удачей, вызывается метод для
-    #     остановки обработчика класса
-    #     """
-    #     timeout = settings.DOWNLOAD_TIMEOUT
-    #     attempts = settings.DOWNLOAD_ATTEMPTS
-    #     i = 0
-    #     try:
-    #         self.driver_lock.acquire()
-    #         self.driver.switch_to.window(self.tab_name)
-    #         logging.debug(
-    #             f"Вкладка создана. "
-    #             f"Ждем {timeout} сек. для загрузки контента."
-    #         )
-    #         for i in range(1, attempts + 1):
-    #             try:
-    #                 logging.debug(f"Попытка {i}")
-    #                 WebDriverWait(self.driver, timeout).until(
-    #                     EC.visibility_of_element_located())
-    #                 logging.debug("данные успешно загруженны")
-    #                 break
-    #             except TimeoutException:
-    #                 logging.warning(f"Время ожидания загрузки истекло.",
-    #                                 exc_info=True)
-    #                 self.driver.switch_to.window(self.tab_name)
-    #     finally:
-    #         self.driver_lock.release()
-    #
-    #     if i == attempts:
-    #         logging.critical(f"Достигнут лимит попыток на загрузку контента")
-    #         self.stop()
 
     def check_404(self, ) -> bool:
         """
@@ -81,12 +40,9 @@ class LigastavokBase(BaseBetParser, ABC):
 
     def get_content(self):
         wd = self.driver
-        try:
-            self.driver_lock.acquire()
+        with self.driver_lock:
             wd.switch_to.window(self.tab_name)
             elem = wd.find_element_by_id("content")
-        finally:
-            self.driver_lock.release()
         return elem
 
     def get_html_content(self):
@@ -109,22 +65,17 @@ class LigastavokBase(BaseBetParser, ABC):
             self.content_hash = html_hash
 
 
+# noinspection PyAttributeOutsideInit
 class LigastavokLive(LigastavokBase):
     """
     класс разбора страницы с текущими событиями
     его задача собрать ссылки и запустить сыбытия для сбора всех ставок
     """
-
-    def __init__(self, web_driver, url, driver_lock=None, parent=None):
-        super(LigastavokLive, self).__init__(
-            web_driver=web_driver,
-            url=url,
-            driver_lock=driver_lock,
-            parent=parent,
-        )
+    def __post_init__(self):
         self.bet_matches_url = set()
         self.bet_matches: List[LigastavokEventData] = []
         self.processed_data: List[LigastavokEventData] = []
+        self.dispatcher: Dispatcher = None
 
     def process(self):
         logging.debug(f"Старт обработки контента страницы")
@@ -155,13 +106,11 @@ class LigastavokLive(LigastavokBase):
                 driver_lock=self.driver_lock,
                 parent=self,
             )
-            try:
-                self.my_lock.acquire()
-                self.children.append(event_parser)
-            finally:
-                self.my_lock.release()
-            event_parser.start()
-            time.sleep(settings.BET_SLEEP)
+            # with self.my_lock:
+            #     self.children.append(event_parser)
+            # event_parser.start()
+            # time.sleep(settings.BET_SLEEP)
+            self.dispatcher.put(event_parser)
 
 
 class LigastavokEvent(LigastavokBase):
@@ -171,6 +120,7 @@ class LigastavokEvent(LigastavokBase):
 
     def process(self):
         logging.debug(f"Старт обработки страницы")
+        self.update_content()
         pass
 
 

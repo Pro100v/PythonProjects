@@ -6,10 +6,11 @@ import logging
 import settings
 import bets_utils
 from sites.ligastavok.bot import LigastavokLive
+from core.dispatcher import Dispatcher
 
 
 def main():
-    bets_utils.set_logging(logging.DEBUG)
+    bets_utils.set_logging(logging.INFO)
     if settings.WO_INTERNET:
         url = "file://" + bets_utils.app_path("pages", "ligastavok_live.html")
     else:
@@ -24,7 +25,7 @@ def main():
     # options.add_argument("--disable-gpu")
     # options.add_argument("--window-size=1920,1080")
     # options.add_argument("--disable-extensions")
-    # options.add_argument("--disable-notifications")
+    options.add_argument("--disable-notifications")
     # options.add_argument("--enable-automation")
     # proxy_str = '--proxy-server=http://{0}:{1}'.format(
     #     PROXY_HOST, str(PROXY_PORT))
@@ -42,9 +43,17 @@ def main():
         )
         # LigastavokProbe.execute(wd, url)   # парсер детальных данных
         # LigastavokLive.execute(wd, url)
+        disp = Dispatcher()
         ls = LigastavokLive(web_driver=wd, url=url)
-        ls.start()
-        ls.join()
+        ls.dispatcher = disp
+
+        disp.queue.put(ls)
+        disp.start()
+        disp.join()
+
+        # ls.start()
+        # ls.join()
+
         # LigastavokEvent.execute(wd, url)
         if wd:
             wd.quit()
