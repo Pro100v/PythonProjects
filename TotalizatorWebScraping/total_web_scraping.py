@@ -3,7 +3,6 @@ from selenium.webdriver.support.events import EventFiringWebDriver
 
 import time
 
-from ligastavokscraper import LigaStavokScraper
 from mylistener import MyListener
 
 url = 'http://www.ligastavok.ru'
@@ -13,18 +12,22 @@ class Bot(object):
     def __init__(self, page='', driver_path='', Listener=None):
         self.page = page
         if Listener:
-            self.driver = EventFiringWebDriver(webdriver.Chrome(), MyListener())
+            self.driver = EventFiringWebDriver(
+                webdriver.Chrome(),
+                MyListener()
+            )
         else:
             if driver_path:
                 self.driver = webdriver.Chrome(driver_path)
             else:
-                self.driver = webdrover.Chrome()
+                self.driver = webdriver.Chrome()
 
     def parse(self):
         # TODO подумать как запускать парсеры и добавлять их в бот
         bot = self.driver
         content = bot.find_element_by_id('content')
-        xpath = '//*[contains(@itemtype, "http://schema.org/Event") and contains(@class, "bui-event-row")]'
+        xpath = '//*[contains(@itemtype, "http://schema.org/Event") ' \
+                'and contains(@class, "bui-event-row")]'
         elems = content.find_elements_by_xpath(xpath)
         for elem in elems:
             print(elem.text)
@@ -44,7 +47,8 @@ if __name__ == '__main__':
     # edriver = EventFiringWebDriver(driver, MyListener())
     # edriver.get(url)
     # content = edriver.find_element_by_id('content')
-    # xpath = '//*[contains(@itemtype, "http://schema.org/Event") and contains(@class, "bui-event-row")]'
+    # xpath = '//*[contains(@itemtype, "http://schema.org/Event") ' \
+    #         'and contains(@class, "bui-event-row")]'
     # elems = driver.find_elements_by_xpath(xpath)
     # for elem in elems:
     #     print(elem.text)
